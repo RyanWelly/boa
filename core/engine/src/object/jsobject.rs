@@ -116,6 +116,15 @@ impl JsObject {
     /// This is equivalent to calling the specification's abstract operation
     /// [`OrdinaryObjectCreate(null)`][call].
     ///
+    /// # Example
+    ///
+    /// ```
+    /// # use boa_engine::JsObject;
+    /// let object = JsObject::with_null_proto();
+    ///
+    /// assert_eq!(object.prototype(), None);
+    /// assert!(object.is_ordinary());
+    /// ```
     /// [call]: https://tc39.es/ecma262/#sec-ordinaryobjectcreate
     #[inline]
     #[must_use]
