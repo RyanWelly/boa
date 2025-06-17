@@ -101,6 +101,19 @@ impl JsObject {
     /// This is equivalent to calling the specification's abstract operation
     /// [`OrdinaryObjectCreate(%Object.prototype%)`][call].
     ///
+    /// # Example 
+    ///
+    /// ```
+    /// use boa_engine::{Context, JsObject};
+    ///
+    /// let context = Context::default();
+    /// let ordinary_object = JsObject::with_object_proto(context.intrinsics());
+    /// 
+    /// // The ordinary_object has its prototype set to the 'Object' prototype.
+    /// let object_prototype = Some(context.intrinsics().constructors().object().prototype());
+    /// assert_eq!(ordinary_object.prototype(), object_prototype);
+    /// ```
+    ///
     /// [call]: https://tc39.es/ecma262/#sec-ordinaryobjectcreate
     #[inline]
     #[must_use]
